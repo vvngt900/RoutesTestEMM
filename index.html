@@ -38,7 +38,7 @@
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response", response);
                   },
-                  function(err) { console.error("Execute error", err); });
+                  function(err) { alert(`Google Server Response : ${err.error.message}`); console.error("Execute error", err); });
       }
       gapi.load("client:auth2", function() {
         gapi.auth2.init({client_id: "845237097697-uhu8sj7u875okiv9jbk1s3trvm6qcr13.apps.googleusercontent.com"});
