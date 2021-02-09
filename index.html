@@ -41,7 +41,7 @@
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response length ", response.result.policies.length);
-                    alert("Here is your policies: ", response.result.policies[0].name.toString())
+                    alert("Here is your policies: "+ response.result.policies[0].name);
                   },
                   function(err) { alert(`Policies API => Google Server Response : ${err.error.message}`); console.error("Execute error", err); });
       }
