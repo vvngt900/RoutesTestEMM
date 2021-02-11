@@ -20,7 +20,6 @@
 
       const dataView = document.getElementById('EMM_data');
       const exeBtn = document.getElementById("exeBtn");
-      exeBtn.style.display ="none";
 
       function authenticate() {
         return gapi.auth2.getAuthInstance()
@@ -76,7 +75,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
-    <label id="EMM_data"></label>
+    <label id="EMM_data" style="display: none;"></label>
   </div>
 </section>
 
