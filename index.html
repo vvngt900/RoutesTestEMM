@@ -47,7 +47,7 @@
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response length ", response.result.policies);
-                    document.getElementById('EMM_data').innerHTML = "Policy Name fetched ==>"+response.result.policies[0].name;
+                    document.getElementById('EMM_data').innerHTML = "<b>Policy Name fetched ==> "+response.result.policies[0].name +" </b>";
                     alert("Here is your policies: "+ response.result.policies[0].name);
                   },
                   function(err) { alert(`Policies API => Google Server Response : ${err.error.message}`); console.error("Execute error", err); });
@@ -63,6 +63,7 @@
 
 <body>
   <nav class="black">
+    
     <div class="nav-wrapper">
       <div class="container">
         <a href="#!" class="brand-logo">Routes EMM Test!!</a>
@@ -74,7 +75,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
-    <label id="EMM_data"></label>
+    <div id="EMM_data"></div>
   </div>
 </section>
 
