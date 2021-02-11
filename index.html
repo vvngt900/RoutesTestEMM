@@ -27,7 +27,7 @@
             .then(function() { 
               console.log("Sign-in successful"); 
               document.getElementById('signInBtn').innerText ="Logged in successfully!!"
-              exeBtn.style.display = "inline-block";
+              $("#exeBtn").show();
             },
                   function(err) { console.error("Error signing in", err); dataView.innerText ="error please check!!" });
       }
