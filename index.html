@@ -19,11 +19,17 @@
          */
 
       const dataView = document.getElementById('EMM_data');
+      const exeBtn = document.getElementById("exeBtn");
+      exeBtn.style.display ="none";
 
       function authenticate() {
         return gapi.auth2.getAuthInstance()
             .signIn({scope: "https://www.googleapis.com/auth/androidmanagement"})
-            .then(function() { console.log("Sign-in successful"); document.getElementById('signInBtn').innerText ="Logged in successfully!!"},
+            .then(function() { 
+              console.log("Sign-in successful"); 
+              document.getElementById('signInBtn').innerText ="Logged in successfully!!"
+              exeBtn.style.display = "block";
+            },
                   function(err) { console.error("Error signing in", err); dataView.innerText ="error please check!!" });
       }
 
@@ -43,7 +49,7 @@
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response length ", response.result.policies);
-                    dataView.innerText = "Policy Name fetched ==>"+response.result.policies[0].name;
+                    dataView.innerHTML = "Policy Name fetched ==>"+response.result.policies[0].name;
                     alert("Here is your policies: "+ response.result.policies[0].name);
                   },
                   function(err) { alert(`Policies API => Google Server Response : ${err.error.message}`); console.error("Execute error", err); });
@@ -69,7 +75,7 @@
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
-    <button class="btn red" onclick="execute()">execute</button>
+    <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
     <div id="EMM_data"></div>
   </div>
 </section>
