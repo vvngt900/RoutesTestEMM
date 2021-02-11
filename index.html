@@ -18,8 +18,7 @@
          * https://developers.google.com/explorer-help/guides/code_samples#javascript
          */
 
-      const dataView = document.getElementById('EMM_data');
-      const exeBtn = document.getElementById("exeBtn");
+      
 
       function authenticate() {
         return gapi.auth2.getAuthInstance()
@@ -27,9 +26,9 @@
             .then(function() { 
               console.log("Sign-in successful"); 
               document.getElementById('signInBtn').innerText ="Logged in successfully!!"
-              exeBtn.style.display ="block";
+              document.getElementById("exeBtn").style.display ="block";
             },
-                  function(err) { console.error("Error signing in", err); dataView.innerText ="error please check!!" });
+                  function(err) { console.error("Error signing in", err); document.getElementById('EMM_data').innerText ="error please check!!" });
       }
 
       function loadClient() {
