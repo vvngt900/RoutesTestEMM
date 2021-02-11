@@ -18,11 +18,13 @@
          * https://developers.google.com/explorer-help/guides/code_samples#javascript
          */
 
+      const dataView = document.getElementById('EMM_data');
+
       function authenticate() {
         return gapi.auth2.getAuthInstance()
             .signIn({scope: "https://www.googleapis.com/auth/androidmanagement"})
-            .then(function() { console.log("Sign-in successful"); },
-                  function(err) { console.error("Error signing in", err); });
+            .then(function() { console.log("Sign-in successful"); document.getElementById('signInBtn').innerText ="Logged in successfully!!"},
+                  function(err) { console.error("Error signing in", err); dataView.innerText ="error please check!!" });
       }
 
       function loadClient() {
@@ -67,6 +69,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" onclick="execute()">execute</button>
+    <div id="EMM_data"></div>
   </div>
 </section>
 
