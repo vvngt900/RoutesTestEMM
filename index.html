@@ -27,7 +27,7 @@
             .then(function() { 
               console.log("Sign-in successful"); 
               document.getElementById('signInBtn').innerText ="Logged in successfully!!"
-              $("#exeBtn").show();
+              exeBtn.style.visibility ="visible";
             },
                   function(err) { console.error("Error signing in", err); dataView.innerText ="error please check!!" });
       }
@@ -74,7 +74,7 @@
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
-    <button class="btn red" id="exeBtn" style="display: none;" onclick="execute()">execute</button>
+    <button class="btn red" id="exeBtn" style="visibility: hidden;" onclick="execute()">execute</button>
     <label id="EMM_data"></label>
   </div>
 </section>
