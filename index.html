@@ -38,16 +38,19 @@
                   function(err) { alert(`Client Load API => Google Server Response : ${err.error.message}`);  console.error("Error loading GAPI client for API", err); });
       }
 
-      var webTokens ='';
+      var webToken ='';
       function loadFrame() {
         console.log("Web Token Creation Request")
         return gapi.client.androidmanagement.enterprises.webTokens.create({
           "parent": "enterprises/LC02my9vtl",
-          "resource": {}
+          "resource": {
+          "parentFrameUrl": "https://vvngt900.github.io/RoutesTestEMM"
+          }
         })
         .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
                   console.log("Response", response);
+                  webToken = response.value;
                 },
                 function(err) { console.error("Execute error", err); });
       }
@@ -73,7 +76,7 @@
 
       gapi.load('gapi.iframes', function() {
       var options = {
-        'url': 'https://play.google.com/work/embedded/search?token=web_token&mode=SELECT',
+        'url': 'https://play.google.com/work/embedded/search?token={webToken}&mode=SELECT',
         'where': document.getElementById('container'),
         'attributes': { style: 'width: 600px; height:1000px', scrolling: 'yes'}
       }
