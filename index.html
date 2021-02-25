@@ -38,7 +38,6 @@
                   function(err) { alert(`Client Load API => Google Server Response : ${err.error.message}`);  console.error("Error loading GAPI client for API", err); });
       }
 
-      var webToken ='';
       function loadFrame() {
         console.log("Web Token Creation Request")
         return gapi.client.androidmanagement.enterprises.webTokens.create({
@@ -50,7 +49,7 @@
         .then(function(response) {
                   // Handle the results here (response.result has the parsed body).
                   console.log("Response", response);
-                  webToken = response.value;
+                  loadDiv(response.value);
                 },
                 function(err) { console.error("Execute error", err); });
       }
@@ -74,7 +73,7 @@
         gapi.auth2.init({client_id: "845237097697-uhu8sj7u875okiv9jbk1s3trvm6qcr13.apps.googleusercontent.com"});
       });
 
-      function loadDiv(){
+      function loadDiv(webToken){
         gapi.load('gapi.iframes', function() {
         var options = {
           'url': 'https://play.google.com/work/embedded/search?token={webToken}&mode=SELECT',
