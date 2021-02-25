@@ -74,14 +74,17 @@
         gapi.auth2.init({client_id: "845237097697-uhu8sj7u875okiv9jbk1s3trvm6qcr13.apps.googleusercontent.com"});
       });
 
-      gapi.load('gapi.iframes', function() {
-      var options = {
-        'url': 'https://play.google.com/work/embedded/search?token={webToken}&mode=SELECT',
-        'where': document.getElementById('container'),
-        'attributes': { style: 'width: 600px; height:1000px', scrolling: 'yes'}
+      function loadDiv(){
+        gapi.load('gapi.iframes', function() {
+        var options = {
+          'url': 'https://play.google.com/work/embedded/search?token={webToken}&mode=SELECT',
+          'where': document.getElementById('container'),
+          'attributes': { style: 'width: 600px; height:1000px', scrolling: 'yes'}
+        }
+        var iframe = gapi.iframes.getContext().openChild(options);
+        });
       }
-      var iframe = gapi.iframes.getContext().openChild(options);
-      });
+      
 
     </script>
 
@@ -101,7 +104,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
-    <button class="btn primary" id="iFrame" onclick="loadFrame()">Load Frame</button>
+    <button class="btn primary" id="iFrame" onclick="loadFrame().then(loadDiv)">Load Frame</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
