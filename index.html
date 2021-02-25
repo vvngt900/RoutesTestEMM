@@ -38,6 +38,19 @@
                   function(err) { alert(`Client Load API => Google Server Response : ${err.error.message}`);  console.error("Error loading GAPI client for API", err); });
       }
 
+      var webTokens ='';
+      function loadFrame() {
+        return gapi.client.androidmanagement.enterprises.webTokens.create({
+      "parent": "enterprises/LC02my9vtl",
+      "resource": {}
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+      }
+
       // Make sure the client is loaded and sign-in is complete before calling this method.
       function execute() {
         console.log("Execute clicked to get policies!!")
@@ -85,6 +98,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
+    <button class="btn primary" id="iFrame" onclick="loadFrame()">Load Frame</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
