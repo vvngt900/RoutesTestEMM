@@ -57,6 +57,16 @@
         gapi.auth2.init({client_id: "845237097697-uhu8sj7u875okiv9jbk1s3trvm6qcr13.apps.googleusercontent.com"});
       });
 
+      gapi.load('gapi.iframes', function() {
+    var options = {
+      'url': 'https://play.google.com/work/embedded/search?token=web_token&mode=SELECT',
+      'where': document.getElementById('container'),
+      'attributes': { style: 'width: 600px; height:1000px', scrolling: 'yes'}
+    }
+
+    var iframe = gapi.iframes.getContext().openChild(options);
+  });
+
     </script>
 
 </head>
@@ -70,7 +80,7 @@
       </div>
     </div>
   </nav>
-  <section>
+  <br>
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
@@ -78,6 +88,9 @@
   </br></br>
     <div id="EMM_data"></div>
   </div>
+
+</br>
+<div id="container" style="width: 100%; height: 200px;"></div>
 </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
