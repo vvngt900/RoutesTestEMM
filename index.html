@@ -77,7 +77,7 @@
       function loadDiv(webToken){
         gapi.load('gapi.iframes', function() {
         var options = {
-          'url': `https://play.google.com/managed/browse?token=WAP_6Yqq3KDmnU8XF7rZzydX8DdvkiggGRkFeyLZV5cTIMjfRpCG22L_nM06Ds7eF51NNpzqy_027RlrwMwH25Ni9QtsdIZepfE-Ef3xQvxiwWZ8_Qs_868V433Nuoa_a4eUhS6NvCl9zBjfwAkQvECRDZ0zPqbH8g7WOE6s6NzZFrK54R_cWg7k`,
+          'url': "https://play.google.com/managed/browse?token="+webToken,
           'where': document.getElementById('container'),
           'attributes': { style: 'width: 100%; height:800px', scrolling: 'yes'}
         }
