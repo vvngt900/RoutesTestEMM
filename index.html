@@ -75,7 +75,7 @@
       });
 
       function loadDiv(webToken){
-        console.log("LoadDiv Called with token ::: ", webToken);
+        console.log("LoadDivFn Called with token ::: ", webToken);
         gapi.load('gapi.iframes', function() {
         var options = {
           'url': "https://play.google.com/managed/browse?token="+webToken,
@@ -105,7 +105,7 @@
     <p>Test GAPI Lib to work with EMM</p>
     <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
-    <button class="btn primary" id="iFrame" onclick="loadFrame().then(token =>loadDiv(token))">Load Frame</button>
+    <button class="btn primary" id="iFrame" onclick="loadFrame()">Load Frame</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
