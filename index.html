@@ -43,7 +43,7 @@
         return gapi.client.androidmanagement.enterprises.webTokens.create({
           "parent": "enterprises/LC02my9vtl",
           "resource": {
-          "parentFrameUrl": "https://vvngt900.github.io/RoutesTestEMM/"
+          "parentFrameUrl": "https://vvngt900.github.io/RoutesTestEMM"
           }
         })
         .then(function(response) {
@@ -63,6 +63,7 @@
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Policies", response.result.policies);
+
                 document.getElementById('EMM_data').innerHTML = "<b>Policy Name fetched ==> "+response.result.policies[0].name +" </b>";
                 alert("Here is your policies: "+ response.result.policies[0].name);
               },
@@ -76,7 +77,7 @@
       function loadDiv(webToken){
         gapi.load('gapi.iframes', function() {
         var options = {
-          'url': 'https://play.google.com/managed/browse?token=WAP_6Yqq9-h6W5i23mi9GWC_QNnuaCwhaqQdyZzlDiYuItyzUwgaXDdKpAPXD4Xf_-dP4VEG3CeNnEr2nm-kW2OyvToV5KpxKVN8O2WPr11FBp2CtzY7bb_jdTsTL4TBU8xVXZtDrHLPHtBO77J2hZclqCdFG6IrfSrlC1FVKJWim26l7RMI-qo4',
+          'url': `https://play.google.com/managed/browse?token={webToken}`,
           'where': document.getElementById('container'),
           'attributes': { style: 'width: 100%; height:800px', scrolling: 'yes'}
         }
