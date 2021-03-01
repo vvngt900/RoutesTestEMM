@@ -48,7 +48,7 @@
         })
         .then(function(response) {
           
-                  console.log("Response to check", response.result.value);
+                  console.log("Response token from result to check", response.result.value);
                   loadDiv(response.result.value);
                 },
                 function(err) { console.error("Execute error", err); });
