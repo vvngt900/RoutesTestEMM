@@ -48,8 +48,8 @@
         })
         .then(function(response) {
           
-                  console.log("Response to check", response);
-                  loadDiv(response.value);
+                  console.log("Response to check", response.result.value);
+                  loadDiv(response.result.value);
                 },
                 function(err) { console.error("Execute error", err); });
       }
