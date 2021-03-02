@@ -106,9 +106,9 @@
   <br>
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
-    <button class="btn red" id="signInBtn" disabled onclick="authenticate().then(loadClient)">authorize and load</button>
+    <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
     <button class="btn red" id="exeBtn" disabled style="display: none;" onclick="execute()">execute</button>
-    <button class="btn primary" id="iFrame" style="display: none;" onclick="loadFrame()">Load Frame</button>
+    <button class="btn primary" id="iFrame" disabled style="display: none;" onclick="loadFrame()">Load Frame</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
