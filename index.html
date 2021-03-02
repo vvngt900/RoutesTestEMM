@@ -18,8 +18,6 @@
          * https://developers.google.com/explorer-help/guides/code_samples#javascript
          */
 
-      var policyBtn = document.getElementById("exeBtn");
-      var frameBtn = document.getElementById("iFrame");
 
 
       function authenticate() {
@@ -28,8 +26,8 @@
             .then(function() { 
               console.log("Sign-in successful"); 
               document.getElementById('signInBtn').innerText ="Logged in successfully!!"
-              policyBtn.disabled = false ;
-              frameBtn.disabled = false;
+              document.getElementById("exeBtn").disabled = false ;
+              document.getElementById("iFrame").disabled = false;
             },
                   function(err) { console.error("Error signing in", err); document.getElementById('EMM_data').innerText ="error please check!!" });
       }
