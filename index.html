@@ -18,7 +18,9 @@
          * https://developers.google.com/explorer-help/guides/code_samples#javascript
          */
 
-      
+      var policyBtn = document.getElementById("exeBtn");
+      var frameBtn = document.getElementById("iFrame");
+
 
       function authenticate() {
         return gapi.auth2.getAuthInstance()
@@ -26,7 +28,8 @@
             .then(function() { 
               console.log("Sign-in successful"); 
               document.getElementById('signInBtn').innerText ="Logged in successfully!!"
-              document.getElementById("exeBtn").style.display ="block";
+              policyBtn.disabled = false ;
+              frameBtn.disabled = false;
             },
                   function(err) { console.error("Error signing in", err); document.getElementById('EMM_data').innerText ="error please check!!" });
       }
@@ -103,9 +106,9 @@
   <br>
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
-    <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
-    <button class="btn red" id="exeBtn" onclick="execute()">execute</button>
-    <button class="btn primary" id="iFrame" onclick="loadFrame()">Load Frame</button>
+    <button class="btn red" id="signInBtn" disabled onclick="authenticate().then(loadClient)">authorize and load</button>
+    <button class="btn red" id="exeBtn" disabled style="display: none;" onclick="execute()">execute</button>
+    <button class="btn primary" id="iFrame" style="display: none;" onclick="loadFrame()">Load Frame</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
