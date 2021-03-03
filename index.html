@@ -62,6 +62,13 @@
 
       // Make sure the client is loaded and sign-in is complete before calling this method.
       function execute() {
+
+        var load =`<div class="progress">
+        <div class="indeterminate"></div>
+        </div>`;
+
+        document.getElementById('EMM_data').innerHTML = load;
+
         console.log("Execute clicked to get policies!!")
         return gapi.client.androidmanagement.enterprises.devices.list({
           "parent": "enterprises/LC02my9vtl"
