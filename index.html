@@ -69,14 +69,13 @@
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Policies", response.result.policies);
-                // response.result.policies.forEach(element => {
-                //                   <ul class="collection">
-                //                     <li class="collection-item">{element.name}</li>
-                //                   </ul>
-                  
-                // });
+                var list_html = "<ol>";
+                for( var i=0; i <response.result.policies.length; i++) {
+                   list_html += "<li>" + response.result.policies[i].name + "</li>";
+                 }
+                list_html += "</ol>"
 
-                document.getElementById('EMM_data').innerHTML = "<b>Policy Name fetched ==> "+response.result.policies[0].name +" </b>";
+                document.getElementById('EMM_data').innerHTML = list_html;
                 alert("Here is your policies: "+ response.result.policies[0].name);
               },
               function(err) { alert(`Policies API => Google Server Response : ${err.error.message}`); console.error("Execute error", err); });
