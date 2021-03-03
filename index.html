@@ -63,15 +63,15 @@
       // Make sure the client is loaded and sign-in is complete before calling this method.
       function execute() {
         console.log("Execute clicked to get policies!!")
-        return gapi.client.androidmanagement.enterprises.policies.list({
+        return gapi.client.androidmanagement.enterprises.devices.list({
           "parent": "enterprises/LC02my9vtl"
         })
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
-                console.log("Policies", response.result.policies);
+                console.log("Policies", response.result.devices);
                 var list_html = `<ul class="collection">`;
-                for( var i=0; i <response.result.policies.length; i++) {
-                   list_html += `<li class="collection-item">` + response.result.policies[i].name + "</li>";
+                for( var i=0; i <response.result.devices.length; i++) {
+                   list_html += `<li class="collection-item">` + response.result.devices[i].name + "</li>";
                  }
                 list_html += "</ul>"
 
