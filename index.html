@@ -69,11 +69,11 @@
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Policies", response.result.policies);
-                var list_html = "<ol>";
+                var list_html = `<ul class="collection">`;
                 for( var i=0; i <response.result.policies.length; i++) {
-                   list_html += "<li>" + response.result.policies[i].name + "</li>";
+                   list_html += `<li class="collection-item">` + response.result.policies[i].name + "</li>";
                  }
-                list_html += "</ol>"
+                list_html += "</ul>"
 
                 document.getElementById('EMM_data').innerHTML = list_html;
                 alert("Here is your policies: "+ response.result.policies[0].name);
