@@ -69,12 +69,12 @@
         .then(function(response) {
                 // Handle the results here (response.result has the parsed body).
                 console.log("Policies", response.result.policies);
-                response.result.policies.forEach(element => {
-                                  <ul class="collection">
-                                    <li class="collection-item">{element.name}</li>
-                                  </ul>
+                // response.result.policies.forEach(element => {
+                //                   <ul class="collection">
+                //                     <li class="collection-item">{element.name}</li>
+                //                   </ul>
                   
-                });
+                // });
 
                 document.getElementById('EMM_data').innerHTML = "<b>Policy Name fetched ==> "+response.result.policies[0].name +" </b>";
                 alert("Here is your policies: "+ response.result.policies[0].name);
@@ -141,7 +141,7 @@
       <a href="#" class="brand-logo">Routes EMM Test!!</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="" onclick="authenticate().then(loadClient)">Login</a></li>
+        <li><a href="">Login</a></li>
       </ul>
     </div>
     <div class="nav-content">
