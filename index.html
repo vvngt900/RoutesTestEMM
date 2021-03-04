@@ -171,7 +171,6 @@
 
 
   <!-- <nav class="black">
-    
     <div class="nav-wrapper">
       <div class="container">
         <a href="#!" class="brand-logo">Routes EMM Test!!</a>
@@ -181,9 +180,11 @@
   <br>
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
-    <button class="btn red" id="signInBtn" onclick="authenticate().then(loadClient)">authorize and load</button>
-    <button class="btn red" id="exeBtn" disabled="true" onclick="execute()">Devices</button>
-    <button class="btn primary" id="iFrame" disabled="true" onclick="loadFrame()">Load Frame</button>
+    <button class="btn success waves-effect" id="signInBtn" onclick="authenticate().then(loadClient)">
+      <i class="material-icons">fingerprint</i> Authorize</button>
+    <button class="btn red" id="exeBtn" disabled="true" onclick="execute()"><i class="material-icons">important_devices</i> Devices</button>
+    <button class="btn primary" id="iFrame" disabled="true" onclick="loadFrame()"><i class="material-icons">filter_frames</i> Load Frame</button>
+    <button class="btn secondary" id="patch" disabled="true" onclick="Patchcall()"><i class="material-icons">get_app</i> Patch Policy</button>
   </br></br>
     <div id="EMM_data"></div>
   </div>
@@ -205,6 +206,6 @@
 </div>
 
 
-   
+
 </body>
 </html>
