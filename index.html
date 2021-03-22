@@ -17,11 +17,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
       <script>
-        /**
-         * Sample JavaScript code for androidmanagement.enterprises.policies.list
-         * See instructions for running APIs Explorer code samples locally:
-         * https://developers.google.com/explorer-help/guides/code_samples#javascript
-         */
 
 
 
@@ -29,13 +24,14 @@
         return gapi.auth2.getAuthInstance()
             .signIn({scope: "https://www.googleapis.com/auth/androidmanagement"})
             .then(function() { 
-              console.log("Sign-in successful"); 
+              console.log("Sign-in successful");
+              loadClient(); 
               document.getElementById('signInBtn').innerText =` Proceed to test ==>`
               document.getElementById("exeBtn").disabled = false ;
               document.getElementById("iFrame").disabled = false;
               document.getElementById("patch").disabled = false;
             },
-                  function(err) { console.error("Error signing in", err); document.getElementById('EMM_data').innerText ="error please check!!" });
+            function(err) { console.error("Error signing in", err); document.getElementById('EMM_data').innerText ="error please check!!" });
       }
 
       function loadClient() {
@@ -111,7 +107,7 @@
           "resource": {
             "applications": [
               {
-                "packageName": "com.mobirix.airhockey",
+                "packageName": "com.routes.testing",
                 "installType": "KIOSK",
                 "defaultPermissionPolicy": "GRANT"
               }
@@ -121,6 +117,7 @@
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response", response);
+                    document.getElementById('signInBtn').innerText =` Wait for the Game to Install & Njoy the game!!`
                   },
                   function(err) { console.error("Execute error", err); });
       }
@@ -181,7 +178,7 @@
   <br>
   <div class="container">
     <p>Test GAPI Lib to work with EMM</p>
-    <button class="btn success waves-effect" id="signInBtn" onclick="authenticate().then(loadClient)">
+    <button class="btn success waves-effect" id="signInBtn" onclick="authenticate()">
       <i class="material-icons">fingerprint</i> Authorize</button>
     <button class="btn red" id="exeBtn" disabled="true" onclick="execute()"><i class="material-icons">important_devices</i> Devices</button>
     <button class="btn primary" id="iFrame" disabled="true" onclick="loadFrame()"><i class="material-icons">filter_frames</i> Load Frame</button>
